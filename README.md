@@ -70,3 +70,4 @@ Through this project, I practiced managing code with Git and Github via SSh whil
 - Integrate with a backend API
 
 - Use Docker for containerized deployment
+<img width="1207" height="1276" alt="Screenshot 2025-11-05 190232" src="https://github.com/user-attachments/assets/c2fb2bc8-33a3-44a2-afac-8ffd621d80d6" />
