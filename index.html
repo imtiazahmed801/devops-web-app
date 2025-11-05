@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Minimal DevOps Web App</title>
+  <style>
+    :root {
+      --bg: #f6f7f8;
+      --surface: #fff;
+      --text: #2b2f33;
+      --muted: #6c737a;
+      --accent: #888;
+      --radius: 12px;
+      --transition: 0.3s ease;
+      font-family: 'Inter', sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      transition: background var(--transition), color var(--transition);
+    }
+
+    .container {
+      width: 90%;
+      max-width: 900px;
+      background: var(--surface);
+      padding: 2rem;
+      border-radius: var(--radius);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.05);
+      transition: background var(--transition);
+    }
+
+    h1 {
+      margin-top: 0;
+    }
+
+    button {
+      background: var(--text);
+      color: #fff;
+      border: none;
+      border-radius: var(--radius);
+      padding: 0.6rem 1rem;
+      cursor: pointer;
+      font-weight: 600;
+      transition: transform var(--transition), background var(--transition);
+    }
+
+    button:hover {
+      transform: scale(1.03);
+      background: var(--muted);
+    }
+
+    footer {
+      margin-top: 2rem;
+      font-size: 0.9rem;
+      color: var(--muted);
+      text-align: center;
+    }
+
+    .toggle-theme {
+      background: transparent;
+      border: 1px solid var(--muted);
+      color: var(--muted);
+      margin-left: 1rem;
+    }
+
+    .dark-mode {
+      --bg: #1e1f21;
+      --surface: #2b2f33;
+      --text: #f6f7f8;
+      --muted: #a0a4a8;
+      --accent: #666;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🚀 Minimal DevOps Web App</h1>
+    <p>Welcome to your deployed environment. This webpage demonstrates how you can host, style, and add interactivity with HTML, CSS, and JavaScript.</p>
+
+    <button id="statusBtn">Check Server Status</button>
+    <button class="toggle-theme" id="toggleTheme">Toggle Theme</button>
+
+    <p id="serverStatus" style="margin-top:1.2rem;color:var(--muted);"></p>
+
+    <footer>Created for DevOps practice — minimalist, responsive, and functional.</footer>
+  </div>
+
+  <script>
+    const statusBtn = document.getElementById('statusBtn');
+    const serverStatus = document.getElementById('serverStatus');
+    const toggleTheme = document.getElementById('toggleTheme');
+
+    // Simulate server check
+    statusBtn.addEventListener('click', () => {
+      serverStatus.textContent = 'Checking server...';
+      statusBtn.disabled = true;
+      setTimeout(() => {
+        const online = Math.random() > 0.2;
+        serverStatus.textContent = online ? '✅ Server is online and responding!' : '⚠️ Server unreachable.';
+        statusBtn.disabled = false;
+      }, 1000);
+    });
+
+    // Toggle between light and dark mode
+    toggleTheme.addEventListener('click', () => {
+      document.body.classList.toggle('dark-mode');
+    });
+  </script>
+</body>
+</html>
+
